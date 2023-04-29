@@ -1,0 +1,5 @@
+nginx:
+  file.managed:
+    - name: /tmp/nginx.tar.gz
+    - source: salt://nginx/nginx.tar.gz
+    - makedirs: True
