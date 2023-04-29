@@ -1,0 +1,9 @@
+unpack_nginx:
+  cmd.run:
+    - name: tar -xzf /tmp/nginx.tar.gz -C /tmp/
+    - unless: test -d /tmp/nginx
+install_nginx:
+  cmd.run:
+    - name: dpkg -i /tmp/nginx/*.deb
+    - require:
+      - cmd: unpack_nginx
